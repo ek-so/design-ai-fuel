@@ -1,9 +1,9 @@
 ---
-name: pressure-test
-description: Relentlessly challenge a plan, decision, or idea until shared understanding. Use when the user wants to stress-test their thinking, or asks to pressure-test, grill, or challenge an idea.
+name: interview-me
+description: Relentlessly challenge a plan, decision, or idea until shared understanding. Use when the user wants to stress-test their thinking, or asks to interview-me, grill, or challenge an idea.
 ---
 
-# Pressure Test
+# Interview Me
 
 - Interview the user hard on every angle of the plan, decision, or idea until you both share the same understanding.
 - Walk each branch of the decision tree; settle dependent choices one at a time.
