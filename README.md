@@ -9,26 +9,10 @@ Shared agent skills for product designers and product people who build with Curs
 ## Layout
 
 ```text
-AGENTS.md                 # Project agent guidance
-.agents/
-  skills/
-    presentation/
-      SKILL.md            # Presentation dramaturgy skill
+AGENTS.md
+.agents/skills/<skill-name>/SKILL.md
 assets/
-  cover.png
 ```
-
-## What's inside
-
-### `AGENTS.md`
-How agents should behave in this project: tone, evidence standards, and how skills are organized.
-
-### Skills (`.agents/skills/`)
-Domain methodology agents load automatically or via `/skill-name`.
-
-| Skill | Description |
-|-------|-------------|
-| `presentation` | Kapterev dramaturgy — brief, slide content, speaker notes, quality checklist |
 
 ## How to use
 
@@ -37,4 +21,6 @@ Domain methodology agents load automatically or via `/skill-name`.
 
 > **Can't see the `.agents/` folder?** Folders starting with `.` are hidden by default. On Mac, press `⇧⌘.` (Shift + Cmd + dot) in Finder to reveal them.
 
-**Skills** — invoke with `/presentation`, or describe a matching task and let the agent pick it up from the skill description.
+**Skills** — each folder under `.agents/skills/` is one skill. Invoke with `/skill-name`, or describe a matching task and let the agent pick it up from the skill description.
+
+**AGENTS.md** — directional rules for how agents should behave.
