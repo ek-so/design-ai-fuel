@@ -4,7 +4,7 @@
 
 # design-ai-fuel
 
-Shared agent skills for product designers and product people who build with Cursor (and other agents that read `AGENTS.md` / `.agents/skills`).
+Shared agent skills for product designers and product people to make any AI agent more efficient.
 
 ## Layout
 
