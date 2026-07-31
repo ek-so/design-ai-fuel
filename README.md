@@ -1,46 +1,40 @@
 <p align="center">
-  <img src="assets/cover.png" alt="design-ai-tools cover" width="100%" />
+  <img src="assets/cover.png" alt="design-ai-fuel cover" width="100%" />
 </p>
 
 # design-ai-fuel
 
-A ready-made `.cursor/` setup for product designers and product people who build with Cursor. Commands, rules, and skills — clone the repo, copy the folder, start using.
+Shared agent skills for product designers and product people who build with Cursor (and other agents that read `AGENTS.md` / `.agents/skills`).
+
+## Layout
+
+```text
+AGENTS.md                 # Project agent guidance
+.agents/
+  skills/
+    presentation/
+      SKILL.md            # Presentation dramaturgy skill
+assets/
+  cover.png
+```
 
 ## What's inside
 
-### Commands (`.cursor/commands/`)
+### `AGENTS.md`
+How agents should behave in this project: tone, evidence standards, and how skills are organized.
 
-Reusable AI workflows you invoke with `/command-name` in Cursor's chat. See the [full glossary](.cursor/commands/README.md).
+### Skills (`.agents/skills/`)
+Domain methodology agents load automatically or via `/skill-name`.
 
-Commands are designed as a **pipeline** — each step feeds into the next, taking you from idea to shipped, reviewed code:
-
-```
-/explore → /one-pager → /critique → /code-explore → /code-plan → /code-execute → /code-review → /code-review-peer → /document
-```
-
-Every predecessor is optional input, so each command also works standalone. The only hard dependency is `/code-execute`, which requires a plan from `/code-plan`.
-
-### Agents (`.cursor/agents/`)
-
-Specialized subagents that run in parallel or get auto-delegated by the parent agent. See the [full glossary](.cursor/agents/README.md).
-
-`/verifier`, `/security-reviewer`, `/test-runner`, `/researcher`
-
-### Rules (`.cursor/rules/`)
-Persistent AI guidelines applied automatically or based on a certain condition. See the [full glossary](.cursor/rules/README.md).
-
-### Skills (`.cursor/skills/`)
-Specialized agent capabilities that commands can reference for domain-specific methodology. See the [full glossary](.cursor/skills/README.md).
+| Skill | Description |
+|-------|-------------|
+| `presentation` | Kapterev dramaturgy — brief, slide content, speaker notes, quality checklist |
 
 ## How to use
 
-1. Download this repo
-2. Copy the `.cursor/` folder into your project root, or any of the subfolders or files separately, if you have a `.cursor/` folder there already
+1. Clone this repo
+2. Copy `AGENTS.md` and `.agents/` into your project root (merge with any existing `.agents/skills/` you already have)
 
-> **Can't see the `.cursor/` folder?** Folders starting with `.` are hidden by default. On Mac, press `⇧⌘.` (Shift + Cmd + dot) in Finder to reveal them.
+> **Can't see the `.agents/` folder?** Folders starting with `.` are hidden by default. On Mac, press `⇧⌘.` (Shift + Cmd + dot) in Finder to reveal them.
 
-**Commands** — invoke with `/command-name` in chat. They guide the AI through a structured task with a defined persona, steps, and output format.
-
-**Skills** — domain knowledge that commands or agents reference for methodology. A command like `/create-presentation` pulls in the `presentation` skill automatically. You can also reference a skill manually (e.g. `@.cursor/skills/presentation.md`).
-
-**Agents** — isolated sub-processes that run in parallel. Some trigger automatically (the parent agent delegates based on the task), others you invoke explicitly (`/researcher`, `/verifier`). They don't consume your main conversation's context.
+**Skills** — invoke with `/presentation`, or describe a matching task and let the agent pick it up from the skill description.

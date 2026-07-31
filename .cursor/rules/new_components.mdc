@@ -1,7 +1,0 @@
----
-alwaysApply: true
----
-
-- Reuse existing components and styles before adding new ones.
-- Use design tokens for all values; avoid hardcoded CSS.
-- Custom CSS only when explicitly permitted by the user. 
