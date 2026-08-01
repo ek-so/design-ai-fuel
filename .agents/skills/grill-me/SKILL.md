@@ -11,4 +11,4 @@ If a *fact* can be found by exploring the environment (filesystem, tools, etc.),
 
 Do not act on it until I confirm we have reached a shared understanding.
 
-_Skill authored by [@mattpocock](https://github.com/mattpocock)._
+_Skill authored by [@mattpocock](https://github.com/mattpocock) — [source](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md)._
