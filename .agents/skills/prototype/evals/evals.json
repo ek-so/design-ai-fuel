@@ -5,19 +5,37 @@
       "id": 1,
       "prompt": "I want to prototype a small habit tracker — something I can click through to show a friend. Not sure what stack. Can you help me get started?",
       "expected_output": "Clarifies intent briefly, advises web + Vite/shadcn (or pushes back if another platform is better), waits for stack confirm, then asks scaffold-only vs scaffold+first screen. Does not scaffold before confirmation.",
-      "files": []
+      "files": [],
+      "assertions": [
+        "Advises web (or browser click-through) as the platform",
+        "Proposes Vite + shadcn (or Vite + React + shadcn) as the default stack",
+        "Waits for stack confirmation and does not claim to have scaffolded",
+        "Asks scaffold-only vs scaffold + one first screen (or equivalent scope fork)"
+      ]
     },
     {
       "id": 2,
       "prompt": "Prototype an iOS app for logging coffee shops — map + list. I was thinking two native apps (Swift and Kotlin) so it feels real.",
       "expected_output": "Restates intent, pushes back once on dual-native for a quick prototype and suggests Expo (or iOS-only SwiftUI if Apple-only), waits for decision, then scopes scaffold vs first screen. Does not start both native projects unprompted.",
-      "files": []
+      "files": [],
+      "assertions": [
+        "Pushes back once on dual-native (Swift + Kotlin) for a quick prototype",
+        "Suggests Expo (or iOS-only SwiftUI) as a faster alternative",
+        "Waits for the user's platform decision before scaffolding",
+        "Does not treat dual-native scaffolding as the immediate default path"
+      ]
     },
     {
       "id": 3,
       "prompt": "We're in an existing Next.js app that already uses our design system. Prototype a new 'team standup notes' page — keep it fake data for now.",
       "expected_output": "Uses existing Next.js + design system (does not propose greenfield Vite/shadcn), confirms scope (likely one page), builds UI-only with fake data if user agrees. No new repo scaffold.",
-      "files": []
+      "files": [],
+      "assertions": [
+        "Does not propose a greenfield Vite + shadcn app",
+        "States intent to reuse the existing Next.js app and design system",
+        "Keeps fidelity to UI-only / fake data",
+        "Confirms or asks scope for one page / this turn before building"
+      ]
     }
   ]
 }
