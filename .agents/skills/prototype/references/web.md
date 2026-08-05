@@ -24,4 +24,4 @@ Propose the default above (or the user's named alternative). One or two sentence
 - Prefer existing design-system pieces if this lives inside a larger monorepo/app.
 
 ## Stop
-Hand back: how to run, what was mocked, and one suggested next step. If they need to share a demo, offering a minimal static/preview host is a fine optional next step — don't start publish/setup unless they ask.
+Hand back: how to run, what was mocked, and one suggested next step.
