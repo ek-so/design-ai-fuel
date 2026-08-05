@@ -3,13 +3,15 @@
 ## When to use
 Greenfield or isolated web spike. In an existing web app, reuse that stack instead.
 
-## Default
+## Default stack
 **Vite + React + TypeScript + shadcn/ui + Tailwind**
 
 Why: quick dev server, solid component primitives, agents iterate on UI fast without framework ceremony.
 
+This is the single place to change the web greenfield default. `SKILL.md` points here — keep the default explicit and one line.
+
 ## Confirm before scaffolding
-Propose the default (or the user's named alternative). Wait for yes/no.
+Propose the default above (or the user's named alternative). One or two sentences of why is enough. Wait for yes/no.
 
 ## Scaffold (after confirm)
 1. Create the Vite React-TS app in the agreed directory.
@@ -22,4 +24,4 @@ Propose the default (or the user's named alternative). Wait for yes/no.
 - Prefer existing design-system pieces if this lives inside a larger monorepo/app.
 
 ## Stop
-Hand back: how to run, what was mocked, and one suggested next step.
+Hand back: how to run, what was mocked, and one suggested next step. If they need to share a demo, offering a minimal static/preview host is a fine optional next step — don't start publish/setup unless they ask.

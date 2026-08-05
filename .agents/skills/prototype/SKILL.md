@@ -21,20 +21,20 @@ Do not scaffold yet.
 
 If the user hasn't specified a platform, **advise one** that fits the product — don't only ask blankly. If they named a platform that fights the idea (e.g. native iOS for a content site meant for sharing links), **push back once** with a better fit and why, then let them decide.
 
-**Greenfield defaults** (propose, short why, wait for yes/no):
+**Greenfield defaults** — read the matching playbook, propose its default stack (short why), wait for yes/no:
 
-| Platform | Default stack | Why |
-|----------|---------------|-----|
-| Typical web app | Vite + React + shadcn/ui | Fast local UI, good component baseline, easy for agents to extend |
-| iOS / Android | See `references/mobile.md` | Platform-native or cross-platform depending on goals |
-| Desktop | See `references/desktop.md` | Usually Electron/Tauri vs native |
-| CLI | See `references/cli.md` | Scriptable, low ceremony |
+| Platform | Playbook |
+|----------|----------|
+| Typical web app | `references/web.md` |
+| iOS / Android | `references/mobile.md` |
+| Desktop | `references/desktop.md` |
+| CLI | `references/cli.md` |
 
-For web: propose **Vite + shadcn** unless they already named another stack. One or two sentences of why is enough; then wait for confirmation before scaffolding.
+Stack defaults live in those files so they can change without editing this workflow. For web, use whatever `references/web.md` names as the default unless the user already picked another stack.
 
-**Existing repo:** Prefer the project's existing stack, design system, and patterns. Only suggest Vite + shadcn (or another greenfield default) when starting a new app or an isolated spike outside the main UI.
+**Existing repo:** Prefer the project's existing stack, design system, and patterns. Only use a greenfield default from the playbooks when starting a new app or an isolated spike outside the main UI.
 
-Read the matching file under `references/` after the platform is agreed.
+Read the matching file under `references/` once the platform is agreed (or while advising, if you need the default stack).
 
 ### 3. Scope this turn
 
