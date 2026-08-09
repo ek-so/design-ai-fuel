@@ -5,6 +5,13 @@ Toolkits that skills (and agents) can call. Each integration lives in its own fo
 | Folder | Purpose |
 |--------|---------|
 | [`google/`](google/) | Google Docs, Sheets, Slides, Drive CLIs |
+| [`figma/`](figma/) | Figma ↔ IDE via official Figma MCP (remote server) |
+
+## Figma
+
+Connect the official **remote** Figma MCP server in your IDE (Cursor: `/add-plugin figma`, then Connect + OAuth).
+
+See [`figma/README.md`](figma/README.md).
 
 ## Google Workspace
 
