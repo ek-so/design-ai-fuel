@@ -13,7 +13,7 @@ This file contains universal instructions applicable to any project and any work
 - Always prefer existing design system, tokens, components, patterns and even small user flows in the target project before creating new ones. Reuse as much code as possible, if it still satisfies user’s request.
 - If you had to create a new component, highlight this in the chat and explain the reason.
 - After you did anything, explain the steps. Don't avoid technical terms, but if used, explain them briefly and simply.
-- When a skill needs Google Docs, Sheets, Slides, or Drive, use the CLIs under `.agents/_utils/google/` (see `.agents/_utils/google/README.md`).
+- When a skill needs Google Docs, Sheets, Slides, or Drive, use the **Google Drive MCP** (Cursor Marketplace plugin + Connect / Google login). Setup: `.agents/_utils/google/README.md`.
 - When a skill needs Figma, use the official Figma MCP server (remote). Setup: `.agents/_utils/figma/README.md`. Prefer frame URLs that include `node-id`.
 
 ## Anti-patterns

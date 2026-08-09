@@ -1,32 +1,22 @@
 # `_utils` — shared tooling for skills
 
-Toolkits that skills (and agents) can call. Each integration lives in its own folder.
+How agents connect to external products. Each folder is setup guidance (usually MCP), not a local script pack.
 
 | Folder | Purpose |
 |--------|---------|
-| [`google/`](google/) | Google Docs, Sheets, Slides, Drive CLIs |
-| [`figma/`](figma/) | Figma ↔ IDE via official Figma MCP (remote server) |
+| [`figma/`](figma/) | Figma ↔ IDE via official Figma MCP |
+| [`google/`](google/) | Google Drive / Docs via Cursor Google Drive MCP |
 
 ## Figma
 
-Connect the official **remote** Figma MCP server in your IDE (Cursor: `/add-plugin figma`, then Connect + OAuth).
-
-See [`figma/README.md`](figma/README.md).
-
-## Google Workspace
-
-```bash
-.agents/_utils/google/setup.sh
-# Place OAuth Desktop client at ~/.design-ai-fuel/client_secret.json
-# See google/README.md for Google Cloud Console steps
-source .agents/_utils/google/activate.sh
+```text
+/add-plugin figma
 ```
 
-```bash
-python .agents/_utils/google/gdocs.py create --title "Brief" --from notes.md --open
-python .agents/_utils/google/gsheets.py create --title "Data" --from data.csv --open
-python .agents/_utils/google/gslides.py create --title "Review" --from outline.md --open
-python .agents/_utils/google/gdrive.py search "design brief"
-```
+Then **Tools & MCP → Connect**. Details: [`figma/README.md`](figma/README.md).
 
-Full command list: [`google/README.md`](google/README.md).
+## Google Drive / Docs
+
+Install the **Google Drive** plugin from Cursor Marketplace / Tools & MCP → **Connect** → log into Google.
+
+Details: [`google/README.md`](google/README.md).

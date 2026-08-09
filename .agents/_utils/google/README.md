@@ -1,95 +1,56 @@
-# Google Workspace tools
+# Google Drive / Docs ↔ IDE setup
 
-OAuth-based CLIs for Docs, Sheets, Slides, and Drive.
+How agents in this repo should talk to Google Drive and Docs: through **Cursor’s Google Drive MCP plugin** (OAuth in the browser). No local Python scripts, no GCP project, no `client_secret.json`.
 
-All local runtime data lives **outside the repo** in `~/.design-ai-fuel/`:
+Official / product context:
 
-| Path | Purpose |
-|------|---------|
-| `~/.design-ai-fuel/.venv` | Python virtualenv |
-| `~/.design-ai-fuel/output/` | Drafts and exports |
-| `~/.design-ai-fuel/client_secret.json` | Your GCP OAuth Desktop client |
-| `~/.design-ai-fuel/token.json` | Cached user OAuth token |
+- [Cursor MCP docs](https://cursor.com/docs/mcp) — Marketplace plugins install with OAuth
+- Cursor Marketplace → **Google Drive** (also Gmail / Calendar under Google Workspace plugins)
+- Google’s Workspace MCP endpoints are used by those plugins (Developer Preview; capabilities can change)
 
-Optional env overrides: `DESIGN_AI_FUEL_HOME`, `GOOGLE_CLIENT_SECRETS`, `GOOGLE_TOKEN`.
+## Why MCP (not custom scripts)
 
-## 1. Create a Google Cloud OAuth client
+| Approach | What the user does |
+|----------|--------------------|
+| **Google Drive MCP (this guide)** | Install plugin → Connect → log into Google once |
+| Local OAuth CLIs / Desktop client | Create a GCP project, OAuth client, embed secrets, run venv scripts |
 
-1. Open [Google Cloud Console](https://console.cloud.google.com/) and create (or pick) a project.
-2. Enable APIs: **Google Drive**, **Google Docs**, **Google Sheets**, **Google Slides**.
-3. **APIs & Services → OAuth consent screen**: choose External (or Internal for Workspace). Add yourself as a test user if the app is in Testing.
-4. **APIs & Services → Credentials → Create credentials → OAuth client ID**:
-   - Application type: **Desktop app**
-   - Download the JSON and save it as:
-     `~/.design-ai-fuel/client_secret.json`
+For design-ai-fuel, prefer MCP so anyone who clones only signs into their own Google account.
 
-## 2. Install Python deps
+## Cursor (preferred path)
 
-From the design-ai-fuel repo root:
+1. Open **Cursor Settings → Tools & MCP** (or **Customize** / Marketplace).
+2. Install the **Google Drive** plugin (Google Workspace).
+3. Click **Connect** next to Google Drive and finish the browser Google login / Allow access flow.
+4. Confirm the server shows as connected (not “needs auth”).
 
-```bash
-.agents/_utils/google/setup.sh
-source .agents/_utils/google/activate.sh
+Optional related plugins if a skill needs them: **Gmail**, **Google Calendar** — same Connect + OAuth pattern.
+
+## How agents should use it here
+
+Once Google Drive MCP is connected:
+
+1. Ask the agent to create, search, read, or share Drive/Docs files in plain language.
+2. Prefer MCP tools over inventing local scripts.
+3. Created files live in **the signed-in user’s** Google Drive.
+4. If a tool is missing or auth fails, reconnect under **Tools & MCP** (Google’s preview servers evolve).
+
+## Quick verify
+
+In chat:
+
+```text
+Using Google Drive MCP, create a short Google Doc titled "design-ai-fuel smoke test" with one paragraph of placeholder text, then give me the link.
 ```
 
-## 3. First-time authentication
+If Cursor prompts to authenticate, complete Connect / Allow access, then retry.
 
-Any CLI opens a browser once for consent (Drive + Docs + Sheets + Slides):
+## If MCP cannot create Docs in your build
 
-```bash
-source .agents/_utils/google/activate.sh
-python .agents/_utils/google/gdocs.py create --title "Hello" --open
-```
+Some preview builds expose read/search more reliably than create. If create is unavailable:
 
-## CLIs
+1. Reconnect the Google Drive plugin and check the consent scopes include Drive write access.
+2. Update Cursor / reinstall the plugin from the Marketplace.
+3. As a last resort, create the Doc in the Google UI and use MCP to read/update/share it.
 
-Activate the venv first (`source .agents/_utils/google/activate.sh`).
-
-### Docs — `gdocs.py`
-
-```bash
-python .agents/_utils/google/gdocs.py create --title "Brief" --from notes.md --open
-python .agents/_utils/google/gdocs.py read "DOC_URL"
-python .agents/_utils/google/gdocs.py update "DOC_URL" --from notes.md --mode replace
-python .agents/_utils/google/gdocs.py export "DOC_URL" --format md   # also: pdf, docx
-```
-
-### Sheets — `gsheets.py`
-
-```bash
-python .agents/_utils/google/gsheets.py create --title "Data" --from data.csv --open
-python .agents/_utils/google/gsheets.py read "SHEET_URL" --out data.csv
-python .agents/_utils/google/gsheets.py update "SHEET_URL" --from data.csv --range A1
-python .agents/_utils/google/gsheets.py export "SHEET_URL" --out data.csv
-```
-
-### Slides — `gslides.py`
-
-Outline markdown: `# Slide title` plus `- bullet` lines (or a JSON list of `{title, bullets}`).
-
-```bash
-python .agents/_utils/google/gslides.py create --title "Review" --from outline.md --open
-python .agents/_utils/google/gslides.py read "SLIDES_URL"
-python .agents/_utils/google/gslides.py export "SLIDES_URL" --format pdf   # also: pptx
-```
-
-### Drive — `gdrive.py`
-
-```bash
-python .agents/_utils/google/gdrive.py search "design brief"
-python .agents/_utils/google/gdrive.py share "FILE_URL" --email someone@example.com --role reader
-python .agents/_utils/google/gdrive.py share "FILE_URL" --anyone
-python .agents/_utils/google/gdrive.py mkdir --title "Project folder" --open
-python .agents/_utils/google/gdrive.py move "FILE_URL" --folder "FOLDER_ID"
-```
-
-Commands that create or mutate files print `kind` / `id` / `url` lines for chaining.
-
-## Layout
-
-| Path | Role |
-|------|------|
-| `config.py`, `auth.py`, `bootstrap.py`, `cli_common.py` | Shared OAuth and CLI helpers |
-| `setup.sh`, `activate.sh`, `requirements.txt` | Venv install |
-| `lib/` | Docs / Sheets / Slides / Drive API helpers |
-| `gdocs.py`, `gsheets.py`, `gslides.py`, `gdrive.py` | CLIs |
+Do **not** fall back to custom GCP OAuth scripts in this repo — keep setup MCP-only.

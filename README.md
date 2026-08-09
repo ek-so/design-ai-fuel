@@ -14,6 +14,6 @@ You can copy `AGENTS.md` and `.agents/` into your project root (merge with any e
 
 **AGENTS.md** — directional rules for how agents should behave.
 
-**Utils** — `.agents/_utils/` holds shared toolkits for skills:
-- [Google Workspace](.agents/_utils/google/) — Docs, Sheets, Slides, Drive CLIs
-- [Figma](.agents/_utils/figma/) — IDE connection via official Figma MCP
+**Utils** — `.agents/_utils/` holds setup guides for external tools:
+- [Figma](.agents/_utils/figma/) — official Figma MCP
+- [Google](.agents/_utils/google/) — Cursor Google Drive MCP (Docs / Drive via Google login)
