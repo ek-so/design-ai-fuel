@@ -7,7 +7,6 @@ This file contains universal instructions applicable to any project and any work
 - Back claims with sources, files, or concrete evidence.
 - If you have not clearly understood what user means, or you have several options of how to solve the problem, don’t assume, ask beforehand (use `grill-me` skill).
 - When the task is large and complex, switch to plan mode and break it down into clear steps.
-- When you need to create a JSON-like file to store the data, use [TOON format](https://toonformat.dev/guide/getting-started)
 
 ## Building
 - Always prefer existing design system, tokens, components, patterns and even small user flows in the target project before creating new ones. Reuse as much code as possible, if it still satisfies user’s request.
@@ -17,6 +16,8 @@ This file contains universal instructions applicable to any project and any work
 ## Anti-patterns
 - Don’t fabricate stats when uncertain, flag the gap instead.
 
-## Tools
+## Tools and technical requirements
 - When a skill needs Google Docs, Sheets, Slides, or Drive, use the **Google Drive MCP** (Cursor Marketplace plugin + Connect / Google login). Setup: `.agents/_utils/google/README.md`.
 - When a skill needs Figma, use the official Figma MCP server (remote). Setup: `.agents/_utils/figma/README.md`. Prefer frame URLs that include `node-id`.
+- When you need to create a JSON-like file to store the data, use [TOON format](https://toonformat.dev/guide/getting-started)
+- After you made changes to any files or folders, always check documentation files and folders such as README, wiki, .gitignore and others whether they stay relevant.

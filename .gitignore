@@ -2,6 +2,8 @@
 __pycache__/
 *.pyc
 .env
-client_secret.json
-token.json
 .venv/
+
+# Private local backlog (not a skill)
+.agents/skills/ideas.md
+
