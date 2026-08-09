@@ -5,5 +5,4 @@ __pycache__/
 .venv/
 
 # Private local backlog (not a skill)
-.agents/skills/ideas.md
 
