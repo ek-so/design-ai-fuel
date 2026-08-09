@@ -11,4 +11,4 @@ Private backlog — not a skill (no `SKILL.md`). Gitignored; stays local.
 - [ ] App testing
 - [ ] Debug (check architecture, bugs etc. like debug in claude, or a link to ready skill to use)
 - [ ] Interface copy check (to check specifically for short descriptiove texts)
-- [ ] 
+- [ ] ...
