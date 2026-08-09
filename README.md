@@ -6,20 +6,9 @@
 
 Shared agent skills for product designers and product people to make any AI agent more efficient.
 
-## Layout
-
-```text
-AGENTS.md
-.agents/skills/<skill-name>/SKILL.md
-assets/
-```
-
 ## How to use
 
-1. Clone this repo
-2. Copy `AGENTS.md` and `.agents/` into your project root (merge with any existing `.agents/skills/` you already have)
-
-> **Can't see the `.agents/` folder?** Folders starting with `.` are hidden by default. On Mac, press `⇧⌘.` (Shift + Cmd + dot) in Finder to reveal them.
+You can copy `AGENTS.md` and `.agents/` into your project root (merge with any existing `.agents/skills/` you already have) or you can fork the repo and open it alongside other projects in your workspace.
 
 **Skills** — each folder under `.agents/skills/` is one skill. Invoke with `/skill-name`, or describe a matching task and let the agent pick it up from the skill description.
 
