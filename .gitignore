@@ -1,1 +1,7 @@
 .DS_Store
+__pycache__/
+*.pyc
+.env
+client_secret.json
+token.json
+.venv/

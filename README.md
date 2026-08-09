@@ -13,3 +13,5 @@ You can copy `AGENTS.md` and `.agents/` into your project root (merge with any e
 **Skills** — each folder under `.agents/skills/` is one skill. Invoke with `/skill-name`, or describe a matching task and let the agent pick it up from the skill description.
 
 **AGENTS.md** — directional rules for how agents should behave.
+
+**Utils** — `.agents/_utils/` holds shared toolkits such as creating google documents.
